@@ -45,16 +45,16 @@ def write_message(lead):
     body = {"contents": [{"parts": [{"text": prompt}]}]}
     headers = {"x-goog-api-key": API_KEY, "Content-Type": "application/json"}
 
-    for i in range(3):
+    for i in range(5):
         try:
             r = requests.post(URL, json=body, headers=headers, timeout=30)
             r.raise_for_status()
             text = r.json()["candidates"][0]["content"]["parts"][0]["text"]
             return text.strip()
         except Exception:
-            if i == 2:
+            if i == 4:
                 return fallback
-            time.sleep(2)
+            time.sleep(2 ** (i + 1))
 
 
 def whatsapp_link(phone, text):
