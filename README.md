@@ -12,8 +12,11 @@ Finds local Karachi businesses that have no real website and prepares a ready-to
 ## Setup
 
     git clone https://github.com/zyanshykh/lead-finder-agent.git
+    
     cd lead-finder-agent
+    
     pip install -r requirements.txt
+    
     cp .env.example .env
 
 Add your keys to `.env`:
